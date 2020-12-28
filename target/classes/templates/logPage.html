@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Music Instrument</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- See configuration in WebMvConfig.java -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+    <script th:src="@{/jquery/jquery.min.js}"></script>
+    <script th:src="@{/popper/popper.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    <style>
+        th, td {padding: 5px;}
+    </style>
+</head>
+<body>
+<!-- Include _menu.html -->
+<th:block th:include="/_menu"></th:block>
+<div class="container">
+    <h2>Observer</h2>
+    <table class="table table-hover" style="font-size: 0.7rem">
+        <tr>
+            <th>Действие</th>
+            <th>ID </th>
+            <th>Название музыкального инструмента </th>
+            <th>Цвет</th>
+            <th>Вес</th>
+            <th>Длина</th>
+            <th>Модель</th>
+            <th>Описание модели</th>
+            <th>Тип</th>
+            <th>Описание типа</th>
+            <th>Где используется</th>
+            <th>Описание где используется</th>
+            <th>Дополнительный инструмент</th>
+            <th>Материал</th>
+            <th colspan="2">Материал дополнительного инструмента</th>
+        </tr>
+        <tr th:each="MusicInstrumentPair, stateP : ${allMusicInstrumentsPair}">
+            <td style="color:green"th:if = '${MusicInstrumentPair.event == "Add" and MusicInstrumentPair.event != null}' th:utext="${MusicInstrumentPair.event}">..</td>
+            <td style="color:orange"th:if = '${(MusicInstrumentPair.event == "Edit_before" or MusicInstrumentPair.event == "Edit_after")and MusicInstrumentPair.event != null}' th:utext="${MusicInstrumentPair.event}">..</td>
+            <td style="color:red"th:if = '${MusicInstrumentPair.event == "Delete" and MusicInstrumentPair.event != null}' th:utext="${MusicInstrumentPair.event}">..</td>
+            <td>
+                <td th:utext="${MusicInstrumentPair.music_instrument[0]}">..</td>
+                <td th:utext="${MusicInstrumentPair.music_instrument[1]}">..</td>
+                <td th:utext="${MusicInstrumentPair.music_instrument[2]}">..</td>
+                <td th:utext="${MusicInstrumentPair.music_instrument[3]}">..</td>
+                <td th:utext="${MusicInstrumentPair.music_instrument[4]}">..</td>
+                <td th:utext="${MusicInstrumentPair.music_instrument[5]}">..</td>
+                <td th:utext="${MusicInstrumentPair.music_instrument[9]}">..</td>
+                <td th:utext="${MusicInstrumentPair.music_instrument[6]}">..</td>
+                <td th:utext="${MusicInstrumentPair.music_instrument[10]}">..</td>
+                <td th:utext="${MusicInstrumentPair.music_instrument[7]}">..</td>
+                <td th:utext="${MusicInstrumentPair.music_instrument[11]}">..</td>
+                <td th:utext="${MusicInstrumentPair.music_instrument[8]}">..</td>
+                <td>
+                    <table>
+                        <tr th:each="Material, statM : ${allMusicInstrumentsPair[__${stateP.index}__].music_instrument[__${12}__]}">
+                            <td th:utext="${allMusicInstrumentsPair[__${stateP.index}__].music_instrument[__${12}__][__${statM.index}__]}"></td>
+                            <td th:utext="${allMusicInstrumentsPair[__${stateP.index}__].music_instrument[__${13}__][__${statM.index}__]}"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td th:utext="${MusicInstrumentPair.music_instrument[14][0]}">..</td>
+                <td th:utext="${MusicInstrumentPair.music_instrument[14][1]}">..</td>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
