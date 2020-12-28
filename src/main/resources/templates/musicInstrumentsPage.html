@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Students</title>
+
+      <meta charset="UTF-8"/>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <!-- See configuration in WebMvConfig.java -->
+      <link th:href="@{/bootstrap/css/bootstrap.min.css}"
+                rel="stylesheet" media="screen"/>
+
+
+      <script th:src="@{/jquery/jquery.min.js}"></script>
+      <script th:src="@{/popper/popper.min.js}"></script>
+      <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+
+<style>
+th, td{
+    padding: 1px;
+}
+</style>
+
+</head>
+
+<body>
+    <!-- Include _menu.html -->
+    <th:block th:include="/_menu"></th:block>
+
+ <div>
+     <h2 style="margin-left: 20px">Musiс instrument</h2>
+     <table class="table table-hover" style="font-size: 0.7rem">
+         <tr>
+             <th>ID </th>
+             <th>Название музыкального инструмента </th>
+             <th>Цвет</th>
+             <th>Вес</th>
+             <th>Длина</th>
+             <th>Модель</th>
+             <th>Описание модели</th>
+             <th>Тип</th>
+             <th>Описание типа</th>
+             <th>Где используется</th>
+             <th>Описание где используется</th>
+             <th>Дополнительный инструмент</th>
+             <th>Материал</th>
+             <th colspan="2">Материал дополнительного инструмента</th>
+         </tr>
+          <tr th:each="MusicInstrumentInfo, stat : ${allMusicInstruments}">
+              <td th:utext="${MusicInstrumentInfo[0]}">..</td>
+              <td th:utext="${MusicInstrumentInfo[1]}">..</td>
+             <td th:utext="${MusicInstrumentInfo[2]}">..</td>
+             <td th:utext="${MusicInstrumentInfo[3]}">..</td>
+             <td th:utext="${MusicInstrumentInfo[4]}">..</td>
+             <td th:utext="${MusicInstrumentInfo[5]}">..</td>
+             <td th:utext="${MusicInstrumentInfo[9]}">..</td>
+             <td th:utext="${MusicInstrumentInfo[6]}">..</td>
+             <td th:utext="${MusicInstrumentInfo[10]}">..</td>
+             <td th:utext="${MusicInstrumentInfo[7]}">..</td>
+             <td th:utext="${MusicInstrumentInfo[11]}">..</td>
+             <td th:utext="${MusicInstrumentInfo[8]}">..</td>
+             <td>
+                <table>
+                    <tr th:each="Material, statM : ${allMusicInstruments[__${stat.index}__][__${12}__]}">
+                        <td th:utext="${allMusicInstruments[__${stat.index}__][__${12}__][__${statM.index}__]}"></td>
+                        <td th:utext="${allMusicInstruments[__${stat.index}__][__${13}__][__${statM.index}__]}"></td>
+                    </tr>
+                </table>
+             </td>
+              <td th:utext="${MusicInstrumentInfo[14][0]}">..</td>
+              <td th:utext="${MusicInstrumentInfo[14][1]}">..</td>
+         </tr>
+     </table>
+    </div>
+</body>
+</html>

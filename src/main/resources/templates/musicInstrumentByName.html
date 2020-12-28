@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Students</title>
+
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- See configuration in WebMvConfig.java -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+
+    <script th:src="@{/jquery/jquery.min.js}"></script>
+    <script th:src="@{/popper/popper.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+
+</head>
+
+<body>
+<!-- Include _menu.html -->
+<th:block th:include="/_menu"></th:block>
+
+<div class="container">
+    <h2>Show Music Instrument</h2>
+    <form th:action="@{/musicInstrumentByName}" th:object="${selectMusicInstrumentByName}" method="POST">
+        <select name="selected_name" id="selected_name" >
+             <option th:each="selected_name : ${selectMusicInstrumentByName}"
+                 th:value="${selected_name}"
+                 th:text="${selected_name}">
+             </option>
+        </select>
+        <button type="submit" class="btn btn-success" value="Show">Show</button>
+    </form>
+</div>
+</body>
+</html>
+

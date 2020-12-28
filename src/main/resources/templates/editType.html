@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Students</title>
+
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- See configuration in WebMvConfig.java -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+
+    <script th:src="@{/jquery/jquery.min.js}"></script>
+    <script th:src="@{/popper/popper.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+
+</head>
+
+<body>
+<!-- Include _menu.html -->
+<th:block th:include="/_menu"></th:block>
+
+<div class="container">
+    <h2>Edit type</h2>
+
+    <form th:action="@{/editType}" th:object="${editMusicInstrumentType}" method="POST">
+        <div class="form-group">
+            <label>Тип:</label>
+            <input type="text"	class="form-control"  placeholder="Введите новое название материала" th:field="*{type_name}" />
+        </div>
+        <div class="form-group">
+            <label>Описание типа:</label>
+            <input type="text"	class="form-control"  placeholder="Введите новое описание материала" th:field="*{type_description}" />
+        </div>
+        <div class="form-group">
+            <label>Название музыкального инструмента:</label>
+            <input type="text"	class="form-control"  placeholder="Введите название музыкального инструмента" th:field="*{music_instrument_id}" />
+        </div>
+        <input type="submit"  class="btn btn-success"  value="Edit"/></td>
+    </form>
+</div>
+</body>
+</html>

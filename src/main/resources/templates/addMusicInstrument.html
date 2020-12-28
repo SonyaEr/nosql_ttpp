@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>Add Music Instrument</title>
+            <meta charset="UTF-8"/>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <!-- See configuration in WebMvConfig.java -->
+      <link th:href="@{/bootstrap/css/bootstrap.min.css}"
+                rel="stylesheet" media="screen"/>
+
+
+      <script th:src="@{/jquery/jquery.min.js}"></script>
+      <script th:src="@{/popper/popper.min.js}"></script>
+      <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+   </head>
+
+   <body>
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>
+	  <div class="container">
+		  <h2>Add Music Instrument</h2>
+		 <form th:action="@{/addMusicInstrument}" th:object="${addMusicInstrumentForm}" method="POST">
+			<div class="form-group">
+			<label>Название музыкального инструмента</label>
+			<input type="text"	class="form-control"  placeholder="Введите музыкальный инструмент" th:field="*{music_instrument_name}" />
+			</div>
+			<div class="form-group">
+			<label>Цвет</label>
+			<input type="text"	class="form-control"  placeholder="Введите модель" th:field="*{color}" />
+			</div>
+			<div class="form-group">
+			<label>Вес</label>
+			<input type="text"	class="form-control"  placeholder="Введите тип " th:field="*{weight}" />
+			</div>
+			<div class="form-group">
+			<label>Длина</label>
+			<input type="text"	class="form-control"  placeholder="Введите использование" th:field="*{length}" />
+			</div>
+			<div class="form-group">
+			<label>Модель</label>
+			<input type="text"	class="form-control"  placeholder="Введите цвет " th:field="*{model_name}" />
+			</div>
+			<div class="form-group">
+			<label>Тип</label>
+			<input type="text"	class="form-control"  placeholder="Введите вес" th:field="*{type_name}" />
+			</div>
+			<div class="form-group">
+			<label>Где используется</label>
+			<input type="text"	class="form-control"  placeholder="Введите длину" th:field="*{where_is_used_name}" />
+			</div>
+			  <div class="form-group">
+				  <label>Дополнительный элемент</label>
+				  <input type="text"	class="form-control"  placeholder="Введите длину" th:field="*{additional_tool_name}" />
+			  </div>
+			<div class="form-group">
+				<label>Описание модели</label>
+				<input type="text"	class="form-control"  placeholder="Введите длину" th:field="*{model_description}" />
+			</div>
+			  <div class="form-group">
+				  <label>Описание типа</label>
+				  <input type="text"	class="form-control"  placeholder="Введите длину" th:field="*{type_description}" />
+			  </div>
+			  <div class="form-group">
+				  <label>Описание где используется</label>
+				  <input type="text"	class="form-control"  placeholder="Введите длину" th:field="*{where_is_used_description}" />
+			  </div>
+			  <div class="form-group">
+				  <label>Материал</label>
+				  <input type="text"	class="form-control"  placeholder="Введите длину" th:field="*{material_name}" />
+			  </div>
+			  <div class="form-group">
+				  <label>Описание материала</label>
+				  <input type="text"	class="form-control"  placeholder="Введите длину" th:field="*{material_description}" />
+			  </div>
+			  <div class="form-group">
+				  <label>Материал дополнительного элемента</label>
+				  <input type="text"	class="form-control"  placeholder="Введите длину" th:field="*{additional_tool_material}" />
+			  </div>
+
+				<td><input type="submit"  class="btn btn-success"  value="Add"/></td>
+		  </form>
+	  </div>
+   </body>
+</html>
